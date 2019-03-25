@@ -9,12 +9,13 @@ var mongoose = require('mongoose');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
+const config = require('../config/config.json')
 
 // *** express instance *** //
 var app = express();
 
 // *** mongoose *** ///
-mongoose.connect('mongodb://localhost/node-testing', function(err, res) {
+mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
   if(err) {
     console.log('Error connecting to the database. ' + err);
   } else {
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 app.use('/', routes);
 
 // *** server config *** //
-var server   = http.createServer(app);
+var server = http.createServer(app);
 server.listen(1337, function() {
   console.log("Node server running on http://localhost:1337");
 });
