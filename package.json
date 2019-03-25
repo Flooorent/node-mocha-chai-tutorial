@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./server/app",
     "devstart": "DEBUG=node-mocha-chai-tutorial:* nodemon .server/app.js",
-    "test": "mocha",
+    "test": "nyc mocha",
     "mongo": "mongod --dbpath ./data/db"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "chai-http": "^1.0.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0"
   }
 }

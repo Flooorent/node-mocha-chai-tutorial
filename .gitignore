@@ -2,4 +2,9 @@ node_modules/
 .DS_Store
 npm-debug.log
 
+# database
 data/
+
+# code coverage
+.nyc_output/
+
